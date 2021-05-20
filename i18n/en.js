@@ -6,6 +6,8 @@ export default {
       },
       placeholder: {
         your: 'Your password',
+        new: 'New password',
+        'repeat-new': 'Repeat new password',
       },
     },
     'repeat-password': {
@@ -17,6 +19,18 @@ export default {
     phone: {
       title: {
         default: 'Phone number',
+      },
+    },
+    'phone-or-email': {
+      title: 'Your Phone number or Email',
+      placeholder: {
+        your: 'Your email or phone number',
+      },
+    },
+    'enter-code': {
+      title: 'Secret code',
+      placeholder: {
+        your: 'Your secret code',
       },
     },
   },
@@ -125,6 +139,16 @@ export default {
     },
     'forgot-password': {
       title: 'Forgot password',
+      button: {
+        reset: 'Reset password',
+        link: 'Send link',
+        code: 'Send code',
+      },
+    },
+    'enter-code': {
+      title: 'Enter code',
+      subtitle: 'Code has been sent on your phone',
+      'send-again': `Didn't get the code? Send again`,
     },
   },
 }

@@ -11,7 +11,11 @@
           rules="phone|required"
           :name="$t('fields.phone.title.default')"
         >
-          <phone-field v-model="phone" :error-messages="errors" />
+          <phone-field
+            v-model="phone"
+            id-text="login-input-phone"
+            :error-messages="errors"
+          />
         </validation-provider>
 
         <!-- Password -->
