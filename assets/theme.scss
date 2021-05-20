@@ -1,0 +1,41 @@
+@font-face {
+  font-family: "roc-grotesk";
+  src: url(~/static/RocGrotesk.ttf) format("truetype");
+}
+
+.v-application .text-h6 {
+  color: rgba(255, 255, 255, .9);
+  text-align: center;
+}
+
+.v-application:not(.desktop-layout) .text-h6 {
+  text-shadow:
+    0 0 1.14rem rgba(49, 119, 255, 0.7),
+    0 0 4.42rem rgba(49, 119, 255, 0.5);
+}
+
+.v-btn--brand, .bg--brand {
+  background: rgba(196, 196, 196, 0.01) !important;
+  box-shadow:
+    inset 0 30px 43.1px -27.7px rgba(255, 255, 255, 0.5),
+    inset 0 5.4px 8.5px -3.1px #FFF,
+    inset 0 -63.1px 52.3px -49.3px rgba(96, 68, 145, 0.3),
+    inset 0 75.4px 77px -36.9px rgba(202, 172, 255, 0.3),
+    inset 0 3px 13.9px rgba(154, 146, 210, 0.3),
+    inset 0 0.8px 30.8px rgba(227, 222, 255, 0.2) !important;
+  backdrop-filter: blur(77px);
+
+  @media not all and (min-resolution: 0.001dpcm) {
+    &.chat__submit {
+      box-shadow: none !important;
+    }
+  }
+}
+
+:root {
+  --surface-color: rgb(16, 15, 46);
+  --surface-alpha-color: rgb(16, 15, 46, 0.7);
+  --primary-color: #F7931A;
+
+  background-color: #100F2E;
+}

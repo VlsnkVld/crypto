@@ -1,0 +1,21 @@
+
+.theme--dark.v-btn.v-btn--disabled.v-btn--has-bg.v-btn--brand {
+  box-shadow: none !important;
+  background-color: #ADB3BC !important;
+  color: white !important;
+}
+
+.auth-input .v-input__control .v-input__slot {
+  min-height: auto !important;
+  display: flex !important;
+  align-items: center !important;
+  input::placeholder {
+    font-size: 14px;
+    color: #FFF;
+    opacity: 0.5;
+  }
+  .v-icon--link {
+    color: #FFF;
+    opacity: 0.5;
+  }
+}
