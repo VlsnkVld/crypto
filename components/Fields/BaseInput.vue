@@ -18,23 +18,15 @@
       background-color="transparent"
       @input="input"
     >
-      <template v-if="rawValue.length > 1" #append>
-        <img
-          v-if="countryFlag !== '🏳' && countryFlag.length"
-          :src="`https://www.countryflags.io/${countryFlag}/flat/24.png`"
-        />
-        <span v-if="countryFlag === '🏳'">{{ countryFlag }}</span>
-      </template>
     </v-text-field>
   </div>
 </template>
 
 <script>
-import parsePhoneNumber from 'libphonenumber-js'
 import InputLabel from '~/components/Fields/InputLabel.vue'
 
 export default {
-  name: 'PhoneField',
+  name: 'BaseInput',
   components: {
     InputLabel,
   },
@@ -49,7 +41,7 @@ export default {
     },
     name: {
       type: String,
-      default: () => 'phone',
+      default: () => 'base-input',
     },
     rules: {
       type: Array,
@@ -58,12 +50,14 @@ export default {
     label: {
       type: String,
       default() {
-        return this.$t('fields.phone.title.default')
+        return this.$t('fields.phone-or-email.title')
       },
     },
     placeholder: {
       type: String,
-      default: () => '+x (xxx) xxx-xx-xx',
+      default() {
+        return this.$t('fields.phone-or-email.placeholder.your')
+      },
     },
     hint: {
       type: String,
@@ -77,20 +71,12 @@ export default {
   data() {
     return {
       rawValue: '',
-      defaultCountryFlag: '🏳',
-      countryFlag: '',
     }
   },
   methods: {
     input(rawValue) {
-      const phone = parsePhoneNumber(rawValue)
-
       this.rawValue = rawValue
-      this.countryFlag = phone?.country
-        ? phone?.country
-        : this.defaultCountryFlag
-
-      this.$emit('input', phone?.number)
+      this.$emit('input', rawValue)
     },
   },
 }
