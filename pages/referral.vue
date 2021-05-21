@@ -1,20 +1,53 @@
 <template>
-  <div>
-    <!-- Header -->
-    <heading>{{ $t('referral.title') }}</heading>
+  <div class="referral py-8">
+    <v-container v-if="true">
+      <h1 class="text-h1 mb-10">
+        {{ $t('referral.title') }}
+      </h1>
 
-    <!-- Balance -->
-    <balance type="referral">
-      <!-- Action button -->
-      <v-btn block rounded large class="v-btn--brand mt-5">
-        Withdraw to My wallet
-      </v-btn>
-    </balance>
+      <v-container class="referral__info text-center">
+        <h2 class="referral__empty-title text-h1 mb-4">
+          {{ $t('referral.empty.title') }}
+        </h2>
+        <p class="text-subtitle-2 mb-10 font-weight-regular">
+          I commented on Figma, I want to add some fancy icons. Do you have any
+          icon set?Do you have any icon set?
+        </p>
+        <div>
+          <h3 class="mb-3 text-lg-body-1">Send invitation</h3>
+          <ul>
+            <li>
+              <a href=""> ok </a>
+            </li>
+          </ul>
+          <span>or</span>
+          <h3>Share link</h3>
+          <div>
+            <input type="text" />
 
-    <!-- Banner -->
-    <referral-banner />
+            <button>Copy icon</button>
+          </div>
+        </div>
+      </v-container>
+    </v-container>
 
-    <partner-list />
+    <div v-else>
+      <!-- Header -->
+      <heading>{{ $t('referral.title') }}</heading>
+
+      <!-- Balance -->
+      <balance type="referral">
+        <!-- Action button -->
+        <v-btn block rounded large class="v-btn--brand mt-5">
+          Withdraw to My wallet
+        </v-btn>
+      </balance>
+
+      <!-- Banner -->
+      <referral-banner />
+
+      <partner-list />
+    </div>
   </div>
 </template>
 
@@ -41,3 +74,18 @@ export default {
   },
 }
 </script>
+
+<style lang="scss">
+.referral {
+  &__empty-title {
+    text-align: center;
+    text-transform: capitalize;
+    text-shadow: 0 0 18px rgba(49, 119, 255, 0.7),
+      0 0 70px rgba(49, 119, 255, 0.5);
+  }
+
+  &__info {
+    max-width: 570px !important;
+  }
+}
+</style>

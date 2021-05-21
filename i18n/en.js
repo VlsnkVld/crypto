@@ -74,6 +74,9 @@ export default {
 
   referral: {
     title: 'Referral',
+    empty: {
+      title: 'You have no referrals',
+    },
   },
 
   balance: {

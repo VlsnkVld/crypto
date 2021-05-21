@@ -79,7 +79,7 @@ export default {
       // eslint-disable-next-line prettier/prettier
       { code: 'en', iso: 'en-US', file: 'en.js', title: 'English', emoji: '🇬🇧' },
       // eslint-disable-next-line prettier/prettier
-      { code: 'ru', iso: 'ru-RU', file: 'ru.js', title: 'Русский', emoji: '🇷🇺' },
+      // { code: 'ru', iso: 'ru-RU', file: 'ru.js', title: 'Русский', emoji: '🇷🇺' },
     ],
     langDir: './i18n',
     defaultLocale: 'en',
