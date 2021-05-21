@@ -1,25 +1,22 @@
 <template>
   <div class="referral py-8">
-    <v-container v-if="true">
+    <div v-if="true" class="px-3">
       <h1 class="text-h1 mb-10">
         {{ $t('referral.title') }}
       </h1>
 
-      <v-container class="referral__info text-center">
+      <div class="referral__info text-center">
         <h2 class="referral__empty-title text-h1 mb-4">
           {{ $t('referral.empty.title') }}
         </h2>
         <p class="text-subtitle-2 mb-10 font-weight-regular">
-          I commented on Figma, I want to add some fancy icons. Do you have any
-          icon set?Do you have any icon set?
+          Here you can invite friends to have more funand earn more bitcoin
         </p>
         <div>
-          <h3 class="mb-3 text-lg-body-1">Send invitation</h3>
-          <ul>
-            <li>
-              <a href=""> ok </a>
-            </li>
-          </ul>
+          <h3 class="mb-3 text-lg-body-1 font-weight-bold">Send invitation</h3>
+
+          <Socials></Socials>
+
           <span>or</span>
           <h3>Share link</h3>
           <div>
@@ -28,8 +25,8 @@
             <button>Copy icon</button>
           </div>
         </div>
-      </v-container>
-    </v-container>
+      </div>
+    </div>
 
     <div v-else>
       <!-- Header -->
@@ -56,6 +53,7 @@ import ReferralBanner from '../components/ReferralBanner.vue'
 import PartnerList from '../components/PartnerList.vue'
 import Heading from '~/components/Heading.vue'
 import Balance from '~/components/Balance.vue'
+import Socials from '~/components/Socials.vue'
 import layoutMixin from '~/mixins/layout'
 
 export default {
@@ -65,6 +63,7 @@ export default {
     Balance,
     ReferralBanner,
     PartnerList,
+    Socials,
   },
   mixins: [layoutMixin],
   head() {
@@ -86,6 +85,8 @@ export default {
 
   &__info {
     max-width: 570px !important;
+    width: 100%;
+    margin: 0 auto;
   }
 }
 </style>
