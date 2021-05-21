@@ -1,9 +1,11 @@
 <template>
-  <v-form>
+  <v-form class="auth-form__wrapper">
     <!-- Header -->
-    <heading>{{ $t('auth.forgot-password.title') }}</heading>
+    <heading-auth :close="true">{{
+      $t('auth.forgot-password.title')
+    }}</heading-auth>
 
-    <div class="page-content">
+    <div class="auth-content">
       <!-- Reset password -->
       <validation-provider
         v-slot="{ errors }"
@@ -32,7 +34,7 @@
         }}
       </v-btn>
       <!-- Links -->
-      <div class="text-center mt-4">
+      <div class="text-center mt-10">
         <v-btn
           :to="{ name: 'auth-sign-in' }"
           text
@@ -47,14 +49,14 @@
 </template>
 
 <script>
-import Heading from '~/components/Heading.vue'
+import HeadingAuth from '~/components/HeadingAuth.vue'
 import BaseInputField from '~/components/Fields/BaseInput.vue'
 import layoutMixin from '~/mixins/layout'
 
 export default {
   name: 'ForgotPasswordPage',
   components: {
-    Heading,
+    HeadingAuth,
     BaseInputField,
   },
   mixins: [layoutMixin],

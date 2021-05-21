@@ -1,9 +1,11 @@
 <template>
-  <v-form>
+  <v-form class="auth-form__wrapper">
     <!-- Header -->
-    <heading>{{ $t('auth.enter-code.title') }}</heading>
-
-    <div class="page-content">
+    <heading-auth :close="true">{{ $t('auth.enter-code.title') }}</heading-auth>
+    <p class="text-caption mt-2 mb-4 text-center font-weight-light">
+      {{ $t('auth.enter-code.sent') }}
+    </p>
+    <div class="auth-content">
       <!-- Enter code -->
       <validation-provider
         v-slot="{ errors }"
@@ -38,13 +40,13 @@
       <validation-provider
         v-slot="{ errors }"
         rules="min:8|required"
-        :name="$t('fields.password.placeholder.repeat-new')"
+        :name="$t('fields.repeat-password.title')"
       >
         <password-field
           v-model="newPasswordRepeat"
           id-text="new-password-input"
           name="new-password-input"
-          :label="$t('fields.password.placeholder.repeat-new')"
+          :label="$t('fields.repeat-password.title')"
           :placeholder="$t('fields.password.placeholder.repeat-new')"
           :error-messages="errors"
         />
@@ -64,12 +66,12 @@
         }}
       </v-btn>
       <!-- Links -->
-      <div class="text-center mt-4">
+      <div class="text-center mt-10">
         <v-btn
           :to="{ name: 'auth-forgot-password' }"
           text
           nuxt
-          class="text-decoration-underline"
+          class="text-decoration-underline pa-0"
         >
           {{ $t('auth.enter-code.send-again') }}
         </v-btn>
@@ -79,7 +81,7 @@
 </template>
 
 <script>
-import Heading from '~/components/Heading.vue'
+import HeadingAuth from '~/components/HeadingAuth.vue'
 import BaseInputField from '~/components/Fields/BaseInput.vue'
 import PasswordField from '~/components/Fields/Password.vue'
 import layoutMixin from '~/mixins/layout'
@@ -87,7 +89,7 @@ import layoutMixin from '~/mixins/layout'
 export default {
   name: 'EnterCodePage',
   components: {
-    Heading,
+    HeadingAuth,
     BaseInputField,
     PasswordField,
   },

@@ -136,7 +136,10 @@ export default {
         },
         politics: {
           title: 'Politics agreement',
-          label: 'I accept Legal Terms and Conditions and Privacy Policty',
+          accept: 'I accept',
+          terms: 'Legal Terms and Conditions',
+          and: 'and',
+          policy: 'Privacy Policy',
         },
       },
     },
@@ -152,6 +155,7 @@ export default {
       title: 'Enter code',
       subtitle: 'Code has been sent on your phone',
       'send-again': `Didn't get the code? Send again`,
+      sent: 'Code has been sent on your phone',
     },
   },
 }
