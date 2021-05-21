@@ -2,12 +2,7 @@
   <div>
     <!-- QR-code -->
     <div class="text-center mb-2">
-      <img
-        src="~static/images/demo-qr-code.png"
-        width="100"
-        height="100"
-        alt="qr"
-      />
+      <img :src="paymethod.qrcode" width="100" height="100" alt="qr" />
     </div>
 
     <!-- Our BTC address -->

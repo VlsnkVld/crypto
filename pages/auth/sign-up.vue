@@ -76,6 +76,7 @@
           <v-checkbox
             v-model="politics"
             color="#fff"
+            class="mt-0"
             :error-messages="errors"
             :false-value="null"
           >

@@ -1,7 +1,7 @@
 <template>
   <v-app
     class="default-layout desktop-layout"
-    :class="{ 'auth-layout__desktop': isAuthPage }"
+    :class="{ 'auth-layout__desktop': getBgType === 'auth' }"
     dark
     :style="{ '--nav-bar': navbar + 'px' }"
     :data-route="$nuxt.$route.name"
@@ -72,14 +72,14 @@ export default {
     navbar() {
       return this.$auth.isAuthenticated && !this.$auth.loading ? 68 : 0
     },
-    isAuthPage() {
+    getBgType() {
       if (
         this.$route.name === 'auth-sign-in' ||
         this.$route.name === 'auth-sign-up' ||
         this.$route.name === 'auth-forgot-password' ||
         this.$route.name === 'auth-enter-code'
       ) {
-        return true
+        return 'auth'
       }
       return false
     },

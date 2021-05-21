@@ -10,7 +10,7 @@
       <validation-provider
         v-slot="{ errors }"
         rules="required"
-        name="forgot-input-main"
+        :name="$t('fields.phone-or-email.title')"
       >
         <base-input-field
           v-model="phoneOrEmail"
