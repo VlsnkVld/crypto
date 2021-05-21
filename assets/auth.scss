@@ -1,0 +1,17 @@
+.auth-content {
+  padding: 16px 16px 32px 16px;
+  @media (min-width: 1264px) {
+    padding: 20px 36px 28px;
+  }
+}
+.auth-form__wrapper {
+  @media (min-width: 1264px) {
+    width: 400px;
+    background-image: url('~/static/images/auth-bg.jpg');
+    background-size: cover;
+    background-repeat: no-repeat;
+    border-radius: 8px;
+    margin-top: 16px;
+    margin-bottom: 16px;
+  }
+}

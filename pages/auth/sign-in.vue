@@ -1,10 +1,10 @@
 <template>
   <validation-observer ref="observer" v-slot="{ invalid }">
-    <form @submit.prevent="submit">
+    <form class="auth-form__wrapper" @submit.prevent="submit">
       <!-- Header -->
-      <heading>{{ $t('auth.log-in.title') }}</heading>
+      <heading-auth :close="true">{{ $t('auth.log-in.title') }}</heading-auth>
 
-      <div class="page-content">
+      <div class="auth-content">
         <!-- Phone -->
         <validation-provider
           v-slot="{ errors }"
@@ -64,7 +64,7 @@
             :to="{ name: 'auth-sign-up' }"
             text
             nuxt
-            class="mt-4 text-decoration-underline"
+            class="mt-16 text-decoration-underline"
           >
             {{ $t('auth.sign-up.alternative-title') }}
           </v-btn>
@@ -75,7 +75,7 @@
 </template>
 
 <script>
-import Heading from '~/components/Heading.vue'
+import HeadingAuth from '~/components/HeadingAuth.vue'
 import PhoneField from '~/components/Fields/Phone.vue'
 import PasswordField from '~/components/Fields/Password.vue'
 import layoutMixin from '~/mixins/layout'
@@ -83,7 +83,7 @@ import layoutMixin from '~/mixins/layout'
 export default {
   name: 'SignInPage',
   components: {
-    Heading,
+    HeadingAuth,
     PhoneField,
     PasswordField,
   },

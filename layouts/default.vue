@@ -168,8 +168,8 @@ export default {
     }
   }
 
-  .page-content {
-    padding: 16px 16px 32px 16px;
+  @media (min-width: 1264px) {
+    --app-bar: 96px;
   }
 }
 

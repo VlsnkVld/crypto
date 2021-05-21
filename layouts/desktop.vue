@@ -1,6 +1,7 @@
 <template>
   <v-app
     class="default-layout desktop-layout"
+    :class="{ 'auth-layout__desktop': isAuthPage }"
     dark
     :style="{ '--nav-bar': navbar + 'px' }"
     :data-route="$nuxt.$route.name"
@@ -71,6 +72,17 @@ export default {
     navbar() {
       return this.$auth.isAuthenticated && !this.$auth.loading ? 68 : 0
     },
+    isAuthPage() {
+      if (
+        this.$route.name === 'auth-sign-in' ||
+        this.$route.name === 'auth-sign-up' ||
+        this.$route.name === 'auth-forgot-password' ||
+        this.$route.name === 'auth-enter-code'
+      ) {
+        return true
+      }
+      return false
+    },
   },
   watch: {
     '$vuetify.breakpoint.lgAndUp': {
@@ -113,6 +125,22 @@ export default {
 
   .layout-br {
     border-radius: 24px !important;
+  }
+}
+.auth-layout__desktop {
+  .v-application--wrap {
+    @media (min-width: 1264px) {
+      background-image: url('~/static/images/desktop-bg.jpg');
+      background-position-y: var(--app-bar);
+      background-size: cover;
+    }
+  }
+  .v-main__wrap {
+    @media (min-width: 1264px) {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
   }
 }
 </style>

@@ -1,10 +1,10 @@
 <template>
   <validation-observer ref="observer" v-slot="{ invalid }">
-    <form @submit.prevent="submit">
+    <form class="auth-form__wrapper" @submit.prevent="submit">
       <!-- Header -->
-      <heading>{{ $t('auth.register.title') }}</heading>
+      <heading-auth :close="true">{{ $t('auth.register.title') }}</heading-auth>
 
-      <div class="page-content">
+      <div class="auth-content">
         <!-- Phone -->
         <validation-provider
           v-slot="{ errors }"
@@ -55,10 +55,16 @@
         >
           <v-checkbox
             v-model="age"
+            color="#fff"
             :error-messages="errors"
-            :label="$t('auth.sign-up.fields.age.label')"
             :false-value="null"
-          />
+          >
+            <template #label>
+              <span class="white--text text-body-2">
+                {{ $t('auth.sign-up.fields.age.label') }}
+              </span>
+            </template>
+          </v-checkbox>
         </validation-provider>
 
         <!-- Flag: Politics  -->
@@ -69,10 +75,23 @@
         >
           <v-checkbox
             v-model="politics"
+            color="#fff"
             :error-messages="errors"
-            :label="$t('auth.sign-up.fields.politics.label')"
             :false-value="null"
-          />
+          >
+            <template #label>
+              <span class="white--text text-body-2">
+                {{ $t('auth.sign-up.fields.politics.accept') }}
+                <nuxt-link :to="{ path: '/' }" class="policy-link">
+                  {{ $t('auth.sign-up.fields.politics.terms') }}
+                </nuxt-link>
+                {{ $t('auth.sign-up.fields.politics.and') }}
+                <nuxt-link :to="{ path: '/' }" class="policy-link">
+                  {{ $t('auth.sign-up.fields.politics.policy') }}
+                </nuxt-link>
+              </span>
+            </template>
+          </v-checkbox>
         </validation-provider>
 
         <!-- Submit -->
@@ -89,13 +108,13 @@
         </v-btn>
 
         <!-- Links -->
-        <div class="text-center mt-4">
+        <div class="text-center mt-10">
           <!-- Sign In -->
           <v-btn
             :to="{ name: 'auth-sign-in' }"
             text
             nuxt
-            class="mt-4 text-decoration-underline"
+            class="text-decoration-underline"
           >
             {{ $t('auth.log-in.title') }}
           </v-btn>
@@ -106,7 +125,7 @@
 </template>
 
 <script>
-import Heading from '~/components/Heading.vue'
+import HeadingAuth from '~/components/HeadingAuth.vue'
 import PhoneField from '~/components/Fields/Phone.vue'
 import PasswordField from '~/components/Fields/Password.vue'
 import layoutMixin from '~/mixins/layout'
@@ -114,7 +133,7 @@ import layoutMixin from '~/mixins/layout'
 export default {
   name: 'SignInPage',
   components: {
-    Heading,
+    HeadingAuth,
     PhoneField,
     PasswordField,
   },
@@ -146,3 +165,9 @@ export default {
   },
 }
 </script>
+
+<style lang="scss" scoped>
+.policy-link {
+  color: var(--primary-color);
+}
+</style>
