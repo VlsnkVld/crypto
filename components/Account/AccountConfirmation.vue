@@ -18,6 +18,9 @@
             <v-col cols="auto">
               <v-icon class="mr-2"> $passport </v-icon>
               <span class="text-subtitle-1 font-weight-medium"> Passport </span>
+              <account-verification
+                v-model="showAccountVerification"
+              ></account-verification>
             </v-col>
             <v-col cols="auto" class="ml-auto">
               <span class="text-subtitle-1 font-weight-medium text-uppercase">
@@ -50,7 +53,17 @@
 </template>
 
 <script>
+import AccountVerification from '~/components/Account/AccountVerification.vue'
+
 export default {
   name: 'AccountConfirmation',
+  components: {
+    AccountVerification,
+  },
+  data() {
+    return {
+      showAccountVerification: true,
+    }
+  },
 }
 </script>
