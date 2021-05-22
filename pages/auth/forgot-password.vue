@@ -65,7 +65,7 @@
 import HeadingAuth from '~/components/HeadingAuth.vue'
 import BaseInputField from '~/components/Fields/BaseInput.vue'
 import layoutMixin from '~/mixins/layout'
-import BaseModal from '~/components/BaseModal.vue'
+import BaseModal from '~/components/Modals/BaseModal.vue'
 
 export default {
   name: 'ForgotPasswordPage',

@@ -58,7 +58,7 @@
 import ReferralEmpty from '../components/Referral/ReferralEmpty.vue'
 // import ReferralBanner from '../components/ReferralBanner.vue'
 import PartnerList from '../components/PartnerList.vue'
-import BaseModal from '~/components/BaseModal.vue'
+import BaseModal from '~/components/Modals/BaseModal.vue'
 import ReferralNewBanner from '~/components/ReferralNewBanner.vue'
 import ReferralTotalBonus from '~/components/Referral/ReferralTotalBonus.vue'
 import Socials from '~/components/Socials.vue'
