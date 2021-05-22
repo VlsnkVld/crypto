@@ -1,5 +1,7 @@
 <template>
-  <label class="d-inline-block mb-1" :for="forInput">{{ text }}</label>
+  <label class="d-inline-block mb-1 font-weight-medium" :for="forInput">{{
+    text
+  }}</label>
 </template>
 
 <script>

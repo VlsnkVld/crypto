@@ -83,6 +83,7 @@ export default {
         case 'auth-enter-code':
           return 'auth'
         case 'referral':
+        case 'account':
           return 'moon-bg'
         default:
           return false

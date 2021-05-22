@@ -4,13 +4,14 @@
     <v-text-field
       :id="idText"
       class="auth-input"
-      :value="rawValue"
+      :value="value"
       :rules="rules"
       type="text"
       inputmode="tel"
       :name="name"
       :placeholder="placeholder"
       :hint="hint"
+      :hide-details="hideDetails"
       :error-messages="errorMessages"
       outlined
       solo
@@ -63,6 +64,10 @@ export default {
       type: String,
       default: () => null,
     },
+    hideDetails: {
+      type: Boolean,
+      default: () => false,
+    },
     errorMessages: {
       type: Array,
       default: () => [],
@@ -74,9 +79,8 @@ export default {
     }
   },
   methods: {
-    input(rawValue) {
-      this.rawValue = rawValue
-      this.$emit('input', rawValue)
+    input(value) {
+      this.$emit('input', value)
     },
   },
 }
