@@ -81,6 +81,7 @@ export default {
       file: 'ri-attachment-2',
       plus: 'ri-add-line',
       minus: 'ri-subtract-line',
+      copy: 'ri-file-copy-line',
     },
   },
 }
