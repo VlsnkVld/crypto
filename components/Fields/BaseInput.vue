@@ -1,6 +1,10 @@
 <template>
   <div>
-    <input-label :for-input="idText" :text="label"></input-label>
+    <input-label
+      :for-input="idText"
+      :text="label"
+      :confirm-status="confirmStatus"
+    />
     <v-text-field
       :id="idText"
       class="auth-input"
@@ -71,6 +75,10 @@ export default {
     errorMessages: {
       type: Array,
       default: () => [],
+    },
+    confirmStatus: {
+      type: String,
+      default: () => '',
     },
   },
   data() {

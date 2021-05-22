@@ -1,10 +1,14 @@
 <template>
   <div>
-    <input-label :for-input="idText" :text="label"></input-label>
+    <input-label
+      :for-input="idText"
+      :text="label"
+      :confirm-status="confirmStatus"
+    ></input-label>
     <v-text-field
       :id="idText"
       class="auth-input"
-      :value="rawValue"
+      :value="value"
       :rules="rules"
       type="text"
       inputmode="tel"
@@ -18,7 +22,7 @@
       background-color="transparent"
       @input="input"
     >
-      <template v-if="rawValue.length > 1" #append>
+      <template v-if="value.length > 1" #append>
         <img
           v-if="countryFlag !== '🏳' && countryFlag.length"
           :src="`https://www.countryflags.io/${countryFlag}/flat/24.png`"
@@ -73,10 +77,13 @@ export default {
       type: Array,
       default: () => [],
     },
+    confirmStatus: {
+      type: String,
+      default: () => '',
+    },
   },
   data() {
     return {
-      rawValue: '',
       defaultCountryFlag: '🏳',
       countryFlag: '',
     }
@@ -85,12 +92,11 @@ export default {
     input(rawValue) {
       const phone = parsePhoneNumber(rawValue)
 
-      this.rawValue = rawValue
       this.countryFlag = phone?.country
         ? phone?.country
         : this.defaultCountryFlag
 
-      this.$emit('input', phone?.number)
+      this.$emit('input', rawValue)
     },
   },
 }
