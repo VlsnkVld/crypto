@@ -20,7 +20,12 @@
       <v-divider :key="user.id + '-d'" />
     </template>
   </v-list> -->
-  <v-data-table :headers="headers" :items="referrals" class="transparent">
+  <v-data-table
+    :headers="headers"
+    :items="referrals"
+    :disable-sort="true"
+    class="partner-list__table transparent"
+  >
     <!-- eslint-disable-next-line -->
     <template v-slot:header.user="{ header }">
       <div class="d-flex align-center white--text">
@@ -117,12 +122,12 @@ export default {
   data() {
     return {
       headers: [
-        { text: 'Player', value: 'user', sortable: false },
-        { text: 'Total Bets', value: 'bets', sortable: false },
-        { text: 'Deposited', value: 'deposited', sortable: false },
-        { text: 'Withdraw', value: 'withdraw', sortable: false },
-        { text: 'Total Time', value: 'total_time', sortable: false },
-        { text: 'Total Bonus', value: 'total_bonus', sortable: false },
+        { text: 'Player', value: 'user' },
+        { text: 'Total Bets', value: 'bets' },
+        { text: 'Deposited', value: 'deposited' },
+        { text: 'Withdraw', value: 'withdraw' },
+        { text: 'Total Time', value: 'total_time' },
+        { text: 'Total Bonus', value: 'total_bonus' },
       ],
       referrals: [],
     }
@@ -167,6 +172,12 @@ const REFERRALS_QUERY = gql`
 
 <style lang="scss">
 .partner-list {
+  &__table {
+    background-color: transparent !important;
+    tr:hover {
+      background-color: transparent !important;
+    }
+  }
   &--green,
   &--green .v-icon {
     color: #a8e063;

@@ -6,7 +6,16 @@
       <v-row>
         <v-col>
           <!-- Header -->
-          <heading>{{ $t('referral.title') }}</heading>
+          <div class="d-flex justify-space-between align-center mb-4">
+            <h5 class="text-h5 font-weight-bold mr-2">
+              {{ $t('referral.title') }}
+            </h5>
+            <v-chip class="py-6 px-4" color="#30A3D8" label>
+              All Bets, Bonuses, Deposits & Withdraw showed in Bitcy. 1 Bitcy =
+              1$
+              <v-icon right class="ml-2 mr-0"> $info </v-icon>
+            </v-chip>
+          </div>
           <partner-list />
         </v-col>
         <v-col cols="auto">
@@ -54,14 +63,12 @@ import ReferralNewBanner from '~/components/ReferralNewBanner.vue'
 import ReferralTotalBonus from '~/components/Referral/ReferralTotalBonus.vue'
 import Socials from '~/components/Socials.vue'
 import ReferralShareLink from '~/components/Referral/ReferralShareLink.vue'
-import Heading from '~/components/Heading.vue'
 // import Balance from '~/components/Balance.vue'
 import layoutMixin from '~/mixins/layout'
 
 export default {
   name: 'ReferralPage',
   components: {
-    Heading,
     // Balance,
     BaseModal,
     ReferralEmpty,
