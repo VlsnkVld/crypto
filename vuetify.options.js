@@ -82,6 +82,8 @@ export default {
       plus: 'ri-add-line',
       minus: 'ri-subtract-line',
       copy: 'ri-file-copy-line',
+      time: 'ri-time-line',
+      dollar: 'ri-money-dollar-circle-line',
     },
   },
 }

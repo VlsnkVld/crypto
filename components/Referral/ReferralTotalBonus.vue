@@ -6,13 +6,13 @@
         <v-col>
           <span class="text-body-1 font-weight-medium"
             >1.500
-            <span class="primary-text">Bitcy</span>
+            <span class="primary--text">Bitcy</span>
           </span>
         </v-col>
         <v-col>
           <span class="text-body-1 font-weight-medium"
             >0.0020
-            <span class="primary-text">BTC</span>
+            <span class="primary--text">BTC</span>
           </span>
         </v-col>
       </v-row>

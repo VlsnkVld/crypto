@@ -1,5 +1,5 @@
 <template>
-  <v-form class="auth-form__wrapper" v-if="!showModal">
+  <v-form v-if="!showModal" class="auth-form__wrapper">
     <!-- Header -->
     <heading-auth :close="true">{{
       $t('auth.forgot-password.title')
@@ -21,12 +21,12 @@
       </validation-provider>
       <!-- Submit -->
       <v-btn
-        @click="open"
         block
         rounded
         large
         class="v-btn--brand"
         :disabled="phoneOrEmail.length === 0"
+        @click="open"
       >
         {{
           $t('auth.forgot-password.button.reset') ||

@@ -83,11 +83,11 @@
             <template #label>
               <span class="white--text text-body-2">
                 {{ $t('auth.sign-up.fields.politics.accept') }}
-                <nuxt-link :to="{ path: '/' }" class="policy-link">
+                <nuxt-link :to="{ path: '/' }" class="primary--text">
                   {{ $t('auth.sign-up.fields.politics.terms') }}
                 </nuxt-link>
                 {{ $t('auth.sign-up.fields.politics.and') }}
-                <nuxt-link :to="{ path: '/' }" class="policy-link">
+                <nuxt-link :to="{ path: '/' }" class="primary--text">
                   {{ $t('auth.sign-up.fields.politics.policy') }}
                 </nuxt-link>
               </span>
@@ -166,9 +166,3 @@ export default {
   },
 }
 </script>
-
-<style lang="scss" scoped>
-.policy-link {
-  color: var(--primary-color);
-}
-</style>
