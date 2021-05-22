@@ -50,14 +50,32 @@
       title="Confirm phone number"
       :width="495"
     >
-      <div class="text-center mt-10">
-        <v-btn small>
-          <v-icon>$complete</v-icon>
-        </v-btn>
-
-        <v-btn text class="text-decoration-underline text- pa-0 modal-button">
-          Didn't get the code? Send again
-        </v-btn>
+      <div>
+        <div class="d-flex align-end mb-2">
+          <base-input-field
+            v-model="codeNumber"
+            id-text="code-field"
+            name="code-field"
+            :hide-details="true"
+            label="Code"
+            placeholder="Code from sms"
+            class="flex-grow-1 mr-3"
+          ></base-input-field>
+          <v-btn
+            class="v-btn--brand flex-shrink-0"
+            width="48px"
+            height="48px"
+            min-width="auto"
+            :disabled="isDisabled"
+          >
+            <v-icon>$complete</v-icon>
+          </v-btn>
+        </div>
+        <div class="text-center">
+          <v-btn text class="text-decoration-underline button-modal">
+            Didn't get the code? Send again
+          </v-btn>
+        </div>
       </div>
     </confirm-modal>
   </v-card>
@@ -76,14 +94,26 @@ export default {
       userFirstName: '',
       userLastName: '',
       userEmail: '',
+      codeNumber: '',
       showConfirmModal: false,
     }
+  },
+  computed: {
+    isDisabled() {
+      return this.codeNumber.length <= 0
+    },
   },
 }
 </script>
 
 <style lang="scss" scoped>
-.modal-button {
-  text-transform: none !important;
+.button {
+  &-complete {
+    background-color: #adb3bc !important;
+  }
+
+  &-modal {
+    text-transform: none !important;
+  }
 }
 </style>
