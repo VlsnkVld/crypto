@@ -45,10 +45,11 @@
         ></base-input-field>
       </v-col>
     </v-row>
-    <confirm-modal
-      v-model="showConfirmModal"
+    <extendable-modal
+      v-model="showModal"
       title="Confirm phone number"
       :width="495"
+      extraClasses="pink-linear-bg"
     >
       <div>
         <div class="d-flex align-end mb-2">
@@ -72,22 +73,22 @@
           </v-btn>
         </div>
         <div class="text-center">
-          <v-btn text class="text-decoration-underline button-modal">
+          <v-btn text class="text-decoration-underline text-none">
             Didn't get the code? Send again
           </v-btn>
         </div>
       </div>
-    </confirm-modal>
+    </extendable-modal>
   </v-card>
 </template>
 
 <script>
-import ConfirmModal from '~/components/Modals/ConfirmModal.vue'
+import ExtendableModal from '~/components/Modals/ExtendableModal.vue'
 import BaseInputField from '~/components/Fields/BaseInput.vue'
 
 export default {
   name: 'AccountPersonalData',
-  components: { BaseInputField, ConfirmModal },
+  components: { BaseInputField, ExtendableModal },
   data() {
     return {
       userNickname: 'zluchkayaaa',
@@ -95,7 +96,7 @@ export default {
       userLastName: '',
       userEmail: '',
       codeNumber: '',
-      showConfirmModal: false,
+      showModal: false,
     }
   },
   computed: {
@@ -105,15 +106,3 @@ export default {
   },
 }
 </script>
-
-<style lang="scss" scoped>
-.button {
-  &-complete {
-    background-color: #adb3bc !important;
-  }
-
-  &-modal {
-    text-transform: none !important;
-  }
-}
-</style>

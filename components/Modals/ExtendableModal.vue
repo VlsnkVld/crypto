@@ -1,7 +1,7 @@
 <template>
   <v-dialog
     :value="value"
-    content-class="pink-linear-bg rounded-lg"
+    :content-class="`${extraClasses} rounded-lg`"
     :width="width"
     @click:outside="closeDialog"
   >
@@ -23,7 +23,7 @@
 
 <script>
 export default {
-  name: 'BaseModal',
+  name: 'ExtendableModal',
   props: {
     title: {
       type: String,
@@ -36,6 +36,11 @@ export default {
     width: {
       type: Number,
       default: () => 450,
+    },
+    extraClasses: {
+      type: String,
+      required: false,
+      default: () => '',
     },
   },
   methods: {
