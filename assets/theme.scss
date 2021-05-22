@@ -3,6 +3,11 @@
   src: url(~/static/RocGrotesk.ttf) format("truetype");
 }
 
+.referral-layout {
+  background-image: url('~/static/images/moons-bg.webp'),
+    linear-gradient(180deg, #1a1f34 0%, #2e307d 100%);
+}
+
 .pink-linear-bg {
   background: linear-gradient(98.37deg, #f0c -47.89%, #339 107.13%) !important;
 }

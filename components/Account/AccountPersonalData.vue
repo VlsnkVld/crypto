@@ -122,10 +122,11 @@
         </v-col>
       </v-row>
     </v-form>
-    <confirm-modal
-      v-model="showConfirmModal"
+    <extendable-modal
+      v-model="showModal"
       title="Confirm phone number"
       :width="495"
+      extraClasses="pink-linear-bg"
     >
       <div>
         <div class="d-flex align-end mb-2">
@@ -149,17 +150,17 @@
           </v-btn>
         </div>
         <div class="text-center">
-          <v-btn text class="text-decoration-underline button-modal">
+          <v-btn text class="text-decoration-underline text-none">
             Didn't get the code? Send again
           </v-btn>
         </div>
       </div>
-    </confirm-modal>
+    </extendable-modal>
   </v-card>
 </template>
 
 <script>
-import ConfirmModal from '~/components/Modals/ConfirmModal.vue'
+import ExtendableModal from '~/components/Modals/ExtendableModal.vue'
 import BaseInputField from '~/components/Fields/BaseInput.vue'
 import AccountPhoto from '~/components/Account/AccountPhoto.vue'
 import PhoneField from '~/components/Fields/Phone.vue'
@@ -169,7 +170,7 @@ export default {
   name: 'AccountPersonalData',
   components: {
     BaseInputField,
-    ConfirmModal,
+    ExtendableModal,
     AccountPhoto,
     PhoneField,
     InputLabel,
@@ -182,7 +183,7 @@ export default {
       userEmail: '',
       userPhone: '+380637985548',
       codeNumber: '',
-      showConfirmModal: false,
+      showModal: false,
       birthDay: 1,
       days: [1, 2, 3, 4, 5, 6, 7],
       birthMonth: 'Jan',
@@ -211,15 +212,3 @@ export default {
   },
 }
 </script>
-
-<style lang="scss" scoped>
-.button {
-  &-complete {
-    background-color: #adb3bc !important;
-  }
-
-  &-modal {
-    text-transform: none !important;
-  }
-}
-</style>
