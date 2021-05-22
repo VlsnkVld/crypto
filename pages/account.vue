@@ -1,5 +1,5 @@
 <template>
-  <div class="py-9">
+  <div class="pt-9">
     <account-header class="mb-2" />
     <account-personal-data class="mb-6" />
     <account-security />

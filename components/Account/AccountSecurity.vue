@@ -12,7 +12,7 @@
       </v-btn>
     </v-card-title>
     <v-form>
-      <v-row class="ma-n2">
+      <v-row class="ma-n2 mb-n4">
         <v-col class="pa-2">
           <validation-provider
             v-slot="{ errors }"
