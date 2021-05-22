@@ -57,7 +57,7 @@
                   v-model="birthDay"
                   class="auth-input"
                   :items="days"
-                  :hide-details="hideDetails"
+                  :hide-details="true"
                   outlined
                   solo
                   height="48"
@@ -69,7 +69,7 @@
                   v-model="birthMonth"
                   class="auth-input"
                   :items="month"
-                  :hide-details="hideDetails"
+                  :hide-details="true"
                   outlined
                   solo
                   height="48"
@@ -81,7 +81,7 @@
                   v-model="birthYear"
                   class="auth-input"
                   :items="years"
-                  :hide-details="hideDetails"
+                  :hide-details="true"
                   outlined
                   solo
                   height="48"
@@ -126,7 +126,7 @@
       v-model="showModal"
       title="Confirm phone number"
       :width="495"
-      extraClasses="pink-linear-bg"
+      extra-classes="pink-linear-bg"
     >
       <div>
         <div class="d-flex align-end mb-2">

@@ -20,7 +20,7 @@ export default {
   props: {
     forInput: {
       type: String,
-      required: true,
+      default: () => '',
     },
     text: {
       type: String,

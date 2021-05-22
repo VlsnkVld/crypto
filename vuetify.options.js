@@ -55,6 +55,7 @@ export default {
       clear: 'ri-close-line',
       success: 'ri-checkbox-circle-line',
       info: 'ri-information-line',
+      'info-fill': 'ri-information-fill',
       warning: 'ri-alarm-warning-line',
       error: 'ri-error-warning-line',
       prev: 'ri-arrow-left-s-line',
@@ -86,6 +87,7 @@ export default {
       dollar: 'ri-money-dollar-circle-line',
       passport: 'ri-passport-line',
       account: 'ri-account-box-line',
+
     },
   },
 }
