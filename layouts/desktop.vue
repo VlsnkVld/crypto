@@ -1,7 +1,10 @@
 <template>
   <v-app
     class="default-layout desktop-layout"
-    :class="{ 'auth-layout__desktop': getBgType === 'auth' }"
+    :class="{
+      'auth-layout__desktop': getBgType === 'auth',
+      'referral-layout': getBgType === 'moon-bg',
+    }"
     dark
     :style="{ '--nav-bar': navbar + 'px' }"
     :data-route="$nuxt.$route.name"
@@ -73,15 +76,17 @@ export default {
       return this.$auth.isAuthenticated && !this.$auth.loading ? 68 : 0
     },
     getBgType() {
-      if (
-        this.$route.name === 'auth-sign-in' ||
-        this.$route.name === 'auth-sign-up' ||
-        this.$route.name === 'auth-forgot-password' ||
-        this.$route.name === 'auth-enter-code'
-      ) {
-        return 'auth'
+      switch (this.$route.name) {
+        case 'auth-sign-in':
+        case 'auth-sign-up':
+        case 'auth-forgot-password':
+        case 'auth-enter-code':
+          return 'auth'
+        case 'referral':
+          return 'moon-bg'
+        default:
+          return false
       }
-      return false
     },
   },
   watch: {
@@ -126,21 +131,22 @@ export default {
   .layout-br {
     border-radius: 24px !important;
   }
+
+  &.referral-layout {
+    background-image: url('~/static/images/moons-bg.webp'),
+      linear-gradient(180deg, #1a1f34 0%, #2e307d 100%);
+  }
 }
 .auth-layout__desktop {
   .v-application--wrap {
-    @media (min-width: 1264px) {
-      background-image: url('~/static/images/desktop-bg.jpg');
-      background-position-y: var(--app-bar);
-      background-size: cover;
-    }
+    background-image: url('~/static/images/desktop-bg.jpg');
+    background-position-y: var(--app-bar);
+    background-size: cover;
   }
   .v-main__wrap {
-    @media (min-width: 1264px) {
-      display: flex;
-      align-items: center;
-      justify-content: center;
-    }
+    display: flex;
+    align-items: center;
+    justify-content: center;
   }
 }
 </style>
