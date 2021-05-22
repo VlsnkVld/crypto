@@ -5,7 +5,7 @@
     :width="width"
     @click:outside="closeDialog"
   >
-    <v-row class="base-modal flex-nowrap ma-0 pa-3">
+    <v-row class="base-modal flex-nowrap ma-0 pa-3 px-12">
       <v-col>
         <h5 class="text-h5 text-center text-capitalize font-weight-bold mb-5">
           {{ title }}
