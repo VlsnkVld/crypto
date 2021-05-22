@@ -1,5 +1,5 @@
 <template>
-  <v-form class="auth-form__wrapper">
+  <v-form class="auth-form__wrapper" v-if="!showModal">
     <!-- Header -->
     <heading-auth :close="true">{{
       $t('auth.forgot-password.title')
@@ -21,6 +21,7 @@
       </validation-provider>
       <!-- Submit -->
       <v-btn
+        @click="open"
         block
         rounded
         large
@@ -46,30 +47,50 @@
       </div>
     </div>
   </v-form>
+  <base-modal v-else v-model="showModal" title="Link has been sent">
+    <p class="mb-12 font-weight-thin text-subtitle-2">
+      We have sent a password reset link to your email
+      <span class="font-weight-bold"> zluchkayaaa@gmail.com </span>
+      Please, check your email
+      <span class="d-block"> and press the link </span>
+    </p>
+    <v-btn :to="{ name: 'auth-sign-in' }" text class="ml-n4">
+      <span class="text-uppercase mr-1">ok, thanks </span>
+      <v-icon small>$linkArrow</v-icon>
+    </v-btn>
+  </base-modal>
 </template>
 
 <script>
 import HeadingAuth from '~/components/HeadingAuth.vue'
 import BaseInputField from '~/components/Fields/BaseInput.vue'
 import layoutMixin from '~/mixins/layout'
+import BaseModal from '~/components/BaseModal.vue'
 
 export default {
   name: 'ForgotPasswordPage',
   components: {
     HeadingAuth,
     BaseInputField,
+    BaseModal,
   },
   mixins: [layoutMixin],
   middleware: 'guest',
   data() {
     return {
       phoneOrEmail: '',
+      showModal: false,
     }
   },
   head() {
     return {
       title: this.$t('auth.forgot-password.title'),
     }
+  },
+  methods: {
+    open() {
+      this.showModal = true
+    },
   },
 }
 </script>
