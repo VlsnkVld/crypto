@@ -24,7 +24,7 @@
     <v-data-table
       :headers="headers"
       :items="referrals"
-      class="partner-list__table transparent"
+      class="partner-list__table transparent mb-6"
       :page.sync="page"
       :items-per-page="itemsPerPage"
       hide-default-footer
@@ -33,86 +33,98 @@
     >
       <!-- eslint-disable-next-line -->
       <template v-slot:header.user="{ header }">
-        <div class="d-flex align-center white--text">
+        <div class="d-flex align-center white--text font-weight-medium">
           <v-icon class="mr-2">$people</v-icon>
-          <span class="font-weight-medium">{{ header.text }}</span>
+          <span class="text-subtitle-2">{{ header.text }}</span>
         </div>
       </template>
       <!-- eslint-disable-next-line -->
       <template v-slot:header.bets="{ header }">
-        <div class="d-flex align-center partner-list--bounty">
+        <div
+          class="d-flex align-center partner-list--bounty font-weight-medium"
+        >
           <v-icon class="mr-2">$dollar</v-icon>
-          <span class="font-weight-medium">{{ header.text }}</span>
+          <span class="text-subtitle-2">{{ header.text }}</span>
         </div>
       </template>
       <!-- eslint-disable-next-line -->
       <template v-slot:header.deposited="{ header }">
-        <div class="d-flex align-center partner-list--green">
+        <div class="d-flex align-center partner-list--green font-weight-medium">
           <v-icon class="mr-2">$up</v-icon>
-          <span class="font-weight-medium">{{ header.text }}</span>
+          <span class="text-subtitle-2">{{ header.text }}</span>
         </div>
       </template>
       <!-- eslint-disable-next-line -->
       <template v-slot:header.withdraw="{ header }">
-        <div class="d-flex align-center red--text">
+        <div class="d-flex align-center red--text font-weight-medium">
           <v-icon class="mr-2 red--text">$down</v-icon>
-          <span class="font-weight-medium">{{ header.text }}</span>
+          <span class="text-subtitle-2">{{ header.text }}</span>
         </div>
       </template>
       <!-- eslint-disable-next-line -->
       <template v-slot:header.total_time="{ header }">
-        <div class="d-flex align-center partner-list--opacity">
+        <div
+          class="d-flex align-center partner-list--opacity font-weight-medium"
+        >
           <v-icon class="mr-2">$time</v-icon>
-          <span class="font-weight-medium">{{ header.text }}</span>
+          <span class="text-subtitle-2">{{ header.text }}</span>
         </div>
       </template>
       <!-- eslint-disable-next-line -->
       <template v-slot:header.total_bonus="{ header }">
-        <div class="d-flex align-center partner-list--bounty">
+        <div
+          class="d-flex align-center partner-list--bounty font-weight-medium"
+        >
           <v-icon class="mr-2">$gift</v-icon>
-          <span class="font-weight-medium">{{ header.text }}</span>
+          <span class="text-subtitle-2">{{ header.text }}</span>
         </div>
       </template>
       <!-- eslint-disable-next-line -->
       <template v-slot:item.user="{ item }">
-        <div class="d-flex align-center white--text">
+        <div class="d-flex align-center white--text font-weight-medium">
           <v-icon class="mr-2">$people</v-icon>
-          <span class="font-weight-medium">{{ item.user }}</span>
+          <span>{{ item.user }}</span>
         </div>
       </template>
       <!-- eslint-disable-next-line -->
       <template v-slot:item.bets="{ item }">
-        <div class="d-flex align-center partner-list--bounty">
+        <div
+          class="d-flex align-center partner-list--bounty font-weight-medium"
+        >
           <v-icon class="mr-2">$dollar</v-icon>
-          <span class="font-weight-medium">{{ item.bets }}</span>
+          <span>{{ item.bets }}</span>
         </div>
       </template>
       <!-- eslint-disable-next-line -->
       <template v-slot:item.deposited="{ item }">
-        <div class="d-flex align-center partner-list--green">
+        <div class="d-flex align-center partner-list--green font-weight-medium">
           <v-icon class="mr-2">$up</v-icon>
-          <span class="font-weight-medium">{{ item.deposited }}</span>
+          <span>{{ item.deposited }}</span>
         </div>
       </template>
       <!-- eslint-disable-next-line -->
       <template v-slot:item.withdraw="{ item }">
-        <div class="d-flex align-center red--text">
+        <div class="d-flex align-center red--text font-weight-medium">
           <v-icon class="mr-2 red--text">$down</v-icon>
-          <span class="font-weight-medium">{{ item.withdraw }}</span>
+          <span>{{ item.withdraw }}</span>
         </div>
       </template>
       <!-- eslint-disable-next-line -->
       <template v-slot:item.total_time="{ item }">
-        <div class="d-flex align-center partner-list--opacity">
+        <div
+          class="d-flex align-center partner-list--opacity font-weight-medium"
+        >
           <v-icon class="mr-2">$time</v-icon>
-          <span class="font-weight-medium">{{ item.total_time }}</span>
+          <span>{{ item.total_time }}</span>
         </div>
       </template>
       <!-- eslint-disable-next-line -->
       <template v-slot:item.total_bonus="{ item }">
-        <div class="d-flex align-center partner-list--bounty">
+        <div
+          class="d-flex align-center partner-list--bounty font-weight-medium"
+        >
           <v-icon class="mr-2">$gift</v-icon>
-          <span class="font-weight-medium">{{ item.total_bonus }}</span>
+          <span>{{ item.total_bonus }}</span>
         </div>
       </template>
     </v-data-table>
