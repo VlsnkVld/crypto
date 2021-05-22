@@ -84,6 +84,8 @@ export default {
       copy: 'ri-file-copy-line',
       time: 'ri-time-line',
       dollar: 'ri-money-dollar-circle-line',
+      passport: 'ri-passport-line',
+      account: 'ri-account-box-line',
     },
   },
 }

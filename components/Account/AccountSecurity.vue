@@ -67,6 +67,7 @@
             rounded
             large
             class="v-btn--brand"
+            height="48"
             :disabled="true"
           >
             Save

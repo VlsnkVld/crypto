@@ -113,10 +113,11 @@
             block
             rounded
             large
+            height="48"
             class="v-btn--brand"
             :disabled="true"
           >
-            Save
+            Save changes
           </v-btn>
         </v-col>
       </v-row>
