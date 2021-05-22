@@ -20,92 +20,103 @@
       <v-divider :key="user.id + '-d'" />
     </template>
   </v-list> -->
-  <v-data-table :headers="headers" :items="referrals" class="transparent">
-    <!-- eslint-disable-next-line -->
-    <template v-slot:header.user="{ header }">
-      <div class="d-flex align-center white--text">
-        <v-icon class="mr-2">$people</v-icon>
-        <span class="font-weight-medium">{{ header.text }}</span>
-      </div>
-    </template>
-    <!-- eslint-disable-next-line -->
-    <template v-slot:header.bets="{ header }">
-      <div class="d-flex align-center partner-list--bounty">
-        <v-icon class="mr-2">$dollar</v-icon>
-        <span class="font-weight-medium">{{ header.text }}</span>
-      </div>
-    </template>
-    <!-- eslint-disable-next-line -->
-    <template v-slot:header.deposited="{ header }">
-      <div class="d-flex align-center partner-list--green">
-        <v-icon class="mr-2">$up</v-icon>
-        <span class="font-weight-medium">{{ header.text }}</span>
-      </div>
-    </template>
-    <!-- eslint-disable-next-line -->
-    <template v-slot:header.withdraw="{ header }">
-      <div class="d-flex align-center red--text">
-        <v-icon class="mr-2 red--text">$down</v-icon>
-        <span class="font-weight-medium">{{ header.text }}</span>
-      </div>
-    </template>
-    <!-- eslint-disable-next-line -->
-    <template v-slot:header.total_time="{ header }">
-      <div class="d-flex align-center partner-list--opacity">
-        <v-icon class="mr-2">$time</v-icon>
-        <span class="font-weight-medium">{{ header.text }}</span>
-      </div>
-    </template>
-    <!-- eslint-disable-next-line -->
-    <template v-slot:header.total_bonus="{ header }">
-      <div class="d-flex align-center partner-list--bounty">
-        <v-icon class="mr-2">$gift</v-icon>
-        <span class="font-weight-medium">{{ header.text }}</span>
-      </div>
-    </template>
-    <!-- eslint-disable-next-line -->
-    <template v-slot:item.user="{ item }">
-      <div class="d-flex align-center white--text">
-        <v-icon class="mr-2">$people</v-icon>
-        <span class="font-weight-medium">{{ item.user }}</span>
-      </div>
-    </template>
-    <!-- eslint-disable-next-line -->
-    <template v-slot:item.bets="{ item }">
-      <div class="d-flex align-center partner-list--bounty">
-        <v-icon class="mr-2">$dollar</v-icon>
-        <span class="font-weight-medium">{{ item.bets }}</span>
-      </div>
-    </template>
-    <!-- eslint-disable-next-line -->
-    <template v-slot:item.deposited="{ item }">
-      <div class="d-flex align-center partner-list--green">
-        <v-icon class="mr-2">$up</v-icon>
-        <span class="font-weight-medium">{{ item.deposited }}</span>
-      </div>
-    </template>
-    <!-- eslint-disable-next-line -->
-    <template v-slot:item.withdraw="{ item }">
-      <div class="d-flex align-center red--text">
-        <v-icon class="mr-2 red--text">$down</v-icon>
-        <span class="font-weight-medium">{{ item.withdraw }}</span>
-      </div>
-    </template>
-    <!-- eslint-disable-next-line -->
-    <template v-slot:item.total_time="{ item }">
-      <div class="d-flex align-center partner-list--opacity">
-        <v-icon class="mr-2">$time</v-icon>
-        <span class="font-weight-medium">{{ item.total_time }}</span>
-      </div>
-    </template>
-    <!-- eslint-disable-next-line -->
-    <template v-slot:item.total_bonus="{ item }">
-      <div class="d-flex align-center partner-list--bounty">
-        <v-icon class="mr-2">$gift</v-icon>
-        <span class="font-weight-medium">{{ item.total_bonus }}</span>
-      </div>
-    </template>
-  </v-data-table>
+  <div>
+    <v-data-table
+      :headers="headers"
+      :items="referrals"
+      class="transparent"
+      :page.sync="page"
+      :items-per-page="itemsPerPage"
+      hide-default-footer
+      @page-count="pageCount = $event"
+    >
+      <!-- eslint-disable-next-line -->
+      <template v-slot:header.user="{ header }">
+        <div class="d-flex align-center white--text">
+          <v-icon class="mr-2">$people</v-icon>
+          <span class="font-weight-medium">{{ header.text }}</span>
+        </div>
+      </template>
+      <!-- eslint-disable-next-line -->
+      <template v-slot:header.bets="{ header }">
+        <div class="d-flex align-center partner-list--bounty">
+          <v-icon class="mr-2">$dollar</v-icon>
+          <span class="font-weight-medium">{{ header.text }}</span>
+        </div>
+      </template>
+      <!-- eslint-disable-next-line -->
+      <template v-slot:header.deposited="{ header }">
+        <div class="d-flex align-center partner-list--green">
+          <v-icon class="mr-2">$up</v-icon>
+          <span class="font-weight-medium">{{ header.text }}</span>
+        </div>
+      </template>
+      <!-- eslint-disable-next-line -->
+      <template v-slot:header.withdraw="{ header }">
+        <div class="d-flex align-center red--text">
+          <v-icon class="mr-2 red--text">$down</v-icon>
+          <span class="font-weight-medium">{{ header.text }}</span>
+        </div>
+      </template>
+      <!-- eslint-disable-next-line -->
+      <template v-slot:header.total_time="{ header }">
+        <div class="d-flex align-center partner-list--opacity">
+          <v-icon class="mr-2">$time</v-icon>
+          <span class="font-weight-medium">{{ header.text }}</span>
+        </div>
+      </template>
+      <!-- eslint-disable-next-line -->
+      <template v-slot:header.total_bonus="{ header }">
+        <div class="d-flex align-center partner-list--bounty">
+          <v-icon class="mr-2">$gift</v-icon>
+          <span class="font-weight-medium">{{ header.text }}</span>
+        </div>
+      </template>
+      <!-- eslint-disable-next-line -->
+      <template v-slot:item.user="{ item }">
+        <div class="d-flex align-center white--text">
+          <v-icon class="mr-2">$people</v-icon>
+          <span class="font-weight-medium">{{ item.user }}</span>
+        </div>
+      </template>
+      <!-- eslint-disable-next-line -->
+      <template v-slot:item.bets="{ item }">
+        <div class="d-flex align-center partner-list--bounty">
+          <v-icon class="mr-2">$dollar</v-icon>
+          <span class="font-weight-medium">{{ item.bets }}</span>
+        </div>
+      </template>
+      <!-- eslint-disable-next-line -->
+      <template v-slot:item.deposited="{ item }">
+        <div class="d-flex align-center partner-list--green">
+          <v-icon class="mr-2">$up</v-icon>
+          <span class="font-weight-medium">{{ item.deposited }}</span>
+        </div>
+      </template>
+      <!-- eslint-disable-next-line -->
+      <template v-slot:item.withdraw="{ item }">
+        <div class="d-flex align-center red--text">
+          <v-icon class="mr-2 red--text">$down</v-icon>
+          <span class="font-weight-medium">{{ item.withdraw }}</span>
+        </div>
+      </template>
+      <!-- eslint-disable-next-line -->
+      <template v-slot:item.total_time="{ item }">
+        <div class="d-flex align-center partner-list--opacity">
+          <v-icon class="mr-2">$time</v-icon>
+          <span class="font-weight-medium">{{ item.total_time }}</span>
+        </div>
+      </template>
+      <!-- eslint-disable-next-line -->
+      <template v-slot:item.total_bonus="{ item }">
+        <div class="d-flex align-center partner-list--bounty">
+          <v-icon class="mr-2">$gift</v-icon>
+          <span class="font-weight-medium">{{ item.total_bonus }}</span>
+        </div>
+      </template>
+    </v-data-table>
+    <v-pagination v-model="page" :length="pageCount" :total-visible="5" />
+  </div>
 </template>
 
 <script>
@@ -116,6 +127,9 @@ export default {
   props: {},
   data() {
     return {
+      page: 1,
+      pageCount: 0,
+      itemsPerPage: 2,
       headers: [
         { text: 'Player', value: 'user', sortable: false },
         { text: 'Total Bets', value: 'bets', sortable: false },
@@ -136,8 +150,26 @@ export default {
       this.referrals = data.data
       this.referrals = [
         {
-          id: 4,
-          user: 'testuser',
+          id: 1,
+          user: 'Афанасий',
+          bets: '15.900',
+          deposited: '1.500',
+          withdraw: '1.500',
+          total_time: '40 hours',
+          total_bonus: '15.900',
+        },
+        {
+          id: 2,
+          user: 'Жорж',
+          bets: '15.900',
+          deposited: '1.500',
+          withdraw: '1.500',
+          total_time: '40 hours',
+          total_bonus: '15.900',
+        },
+        {
+          id: 3,
+          user: 'Игорь',
           bets: '15.900',
           deposited: '1.500',
           withdraw: '1.500',
@@ -179,6 +211,27 @@ const REFERRALS_QUERY = gql`
   &--bounty,
   &--bounty .v-icon {
     color: #fdd65b;
+  }
+}
+
+.v-pagination {
+  &__item.v-pagination__item--active.primary {
+    background-color: transparent !important;
+  }
+
+  &__item {
+    background: none !important;
+    box-shadow: none !important;
+    font-weight: 500 !important;
+    font-size: 14px !important;
+
+    &--active {
+      color: var(--primary-color) !important;
+    }
+  }
+
+  &__navigation {
+    display: none !important;
   }
 }
 </style>
