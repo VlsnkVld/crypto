@@ -15,7 +15,7 @@
       <v-divider class="mb-9" inset />
 
       <!-- Profile Info -->
-      <v-list-item to="#">
+      <v-list-item :to="{ name: 'account' }">
         <!-- Icon -->
         <v-list-item-icon>
           <v-icon>$people</v-icon>

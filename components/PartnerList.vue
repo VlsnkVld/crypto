@@ -128,7 +128,12 @@
         </div>
       </template>
     </v-data-table>
-    <v-pagination v-model="page" :length="pageCount" :total-visible="5" />
+    <v-pagination
+      v-if="itemsPerPage.length < referrals.length"
+      v-model="page"
+      :length="pageCount"
+      :total-visible="5"
+    />
   </div>
 </template>
 
@@ -142,7 +147,7 @@ export default {
     return {
       page: 1,
       pageCount: 0,
-      itemsPerPage: 2,
+      itemsPerPage: 10,
       headers: [
         { text: 'Player', value: 'user' },
         { text: 'Total Bets', value: 'bets' },
@@ -164,7 +169,7 @@ export default {
       this.referrals = [
         {
           id: 1,
-          user: 'Афанасий',
+          user: 'Jorje',
           bets: '15.900',
           deposited: '1.500',
           withdraw: '1.500',
@@ -173,7 +178,7 @@ export default {
         },
         {
           id: 2,
-          user: 'Жорж',
+          user: 'User Name',
           bets: '15.900',
           deposited: '1.500',
           withdraw: '1.500',
@@ -182,7 +187,7 @@ export default {
         },
         {
           id: 3,
-          user: 'Игорь',
+          user: 'Leon',
           bets: '15.900',
           deposited: '1.500',
           withdraw: '1.500',
