@@ -136,6 +136,8 @@ export default {
   &.referral-layout {
     background-image: url('~/static/images/moons-bg.webp'),
       linear-gradient(180deg, #1a1f34 0%, #2e307d 100%);
+    background-repeat: no-repeat;
+    background-size: contain;
   }
 }
 .auth-layout__desktop {

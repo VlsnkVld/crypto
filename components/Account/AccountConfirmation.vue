@@ -15,6 +15,7 @@
             'v-btn--brand': false,
             'orange-linear-bg': false,
             'green-linear-bg': true,
+            'red-linear-bg': false,
           }"
           height="56"
         >
@@ -22,9 +23,6 @@
             <v-col cols="auto">
               <v-icon class="mr-2"> $passport </v-icon>
               <span class="text-subtitle-1 font-weight-medium"> Passport </span>
-              <account-verification
-                v-model="showAccountVerification"
-              ></account-verification>
             </v-col>
             <v-col v-if="false" cols="auto" class="ml-auto">
               <span class="text-subtitle-1 font-weight-medium text-uppercase">
@@ -91,20 +89,43 @@
         </v-btn></v-col
       >
     </v-row>
+
+    <extendable-modal
+      v-if="showAccountVerification"
+      v-model="showAccountVerification"
+      title="Account Verification"
+      :width="502"
+      extra-classes="moon-blue-bg pb-4"
+    >
+      <account-verification />
+    </extendable-modal>
+    <extendable-modal
+      v-model="showSuccessVerification"
+      title="Account Verification"
+      :width="502"
+      extra-classes="moon-blue-bg pb-4"
+    >
+      <account-success-verification />
+    </extendable-modal>
   </v-card>
 </template>
 
 <script>
+import ExtendableModal from '~/components/Modals/ExtendableModal.vue'
 import AccountVerification from '~/components/Account/AccountVerification.vue'
+import AccountSuccessVerification from '~/components/Account/AccountSuccessVerification.vue'
 
 export default {
   name: 'AccountConfirmation',
   components: {
     AccountVerification,
+    ExtendableModal,
+    AccountSuccessVerification,
   },
   data() {
     return {
-      showAccountVerification: true,
+      showAccountVerification: false,
+      showSuccessVerification: false,
     }
   },
 }

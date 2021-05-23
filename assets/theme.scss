@@ -3,11 +3,10 @@
   src: url(~/static/RocGrotesk.ttf) format("truetype");
 }
 
-.referral-layout {
-  background-image: url('~/static/images/moons-bg.webp'),
-    linear-gradient(180deg, #1a1f34 0%, #2e307d 100%);
+.moon-blue-bg {
+  background-image: url('~/static/images/auth-bg.jpg');
+  background-size: cover;
 }
-
 .pink-linear-bg {
   background: linear-gradient(98.37deg, #f0c -47.89%, #339 107.13%) !important;
 }
@@ -22,6 +21,9 @@
 }
 .blue-transparent-bg {
   background: rgba(194, 206, 247, 0.13) !important;
+}
+.white-transparent-bg {
+  background: rgba(253, 253, 253, 0.15) !important;
 }
 
 .v-application .text-h6 {

@@ -63,6 +63,7 @@ export default {
       checkboxOn: 'ri-checkbox-fill',
       checkboxOff: 'ri-checkbox-blank-line',
       checkboxIndeterminate: 'ri-checkbox-indeterminate-fill',
+      checkboxRound: 'ri-checkbox-circle-fill',
       delimiter: 'ri-checkbox-blank-circle-fill', // for carousel
       sort: 'ri-arrow-up-line',
       expand: 'ri-arrow-sown-s-line',
@@ -87,6 +88,7 @@ export default {
       dollar: 'ri-money-dollar-circle-line',
       passport: 'ri-passport-line',
       account: 'ri-account-box-line',
+      upload: 'ri-upload-2-line',
 
     },
   },
