@@ -63,17 +63,17 @@ export default {
   background-repeat: no-repeat;
   border-radius: 8px;
   overflow: hidden;
-  min-height: 255px;
   max-height: 255px;
   width: 100%;
-  max-width: calc(100% - 32px);
+  max-width: 400px;
   margin: 16px auto;
 
   &__value {
     font-style: normal;
-    font-weight: bold;
+    font-weight: 500;
     font-size: 5.25rem;
-    margin-top: 50px;
+    margin-top: 40px;
+    margin-bottom: 40px;
     text-align: center;
     color: #c8a248;
 
@@ -117,6 +117,7 @@ export default {
       &__value {
         font-size: 7.25rem;
         margin-top: 70px;
+        margin-bottom: 0;
 
         span {
           width: 77px;

@@ -1,7 +1,11 @@
 <template>
   <div class="logo">
-    <span class="primary--text">Bitcy</span>
-    <span class="white--text">Bets</span>
+    <img
+      src="~/static/images/main-logo.svg"
+      alt="bitcybets"
+      width="177"
+      height="20"
+    />
   </div>
 </template>
 
@@ -13,9 +17,6 @@ export default {
 
 <style lang="scss">
 .logo {
-  display: inline-flex;
-  font-weight: 900;
-  letter-spacing: 0.06em;
-  text-transform: uppercase;
+  display: flex;
 }
 </style>

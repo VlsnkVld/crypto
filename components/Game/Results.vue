@@ -1,5 +1,5 @@
 <template>
-  <div class="game-results">
+  <div class="game-results" :class="{ 'pa-4': !$vuetify.breakpoint.lgAndUp }">
     <template v-if="translation === 'timer'">
       <alternative-timer />
       <!-- v-if="$vuetify.breakpoint.lgAndUp" -->

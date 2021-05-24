@@ -44,8 +44,8 @@ import GameChartBackground from './ChartBackground'
 import GameChartDesktopBackground from './ChartDesktopBackground'
 import ChartChartjs from './ChartChartjs'
 
-const PREDICT_DOWN_COLOR = '#F57D7D'
-const PREDICT_UP_COLOR = '#9BE382'
+const PREDICT_DOWN_COLOR = '#F5433D'
+const PREDICT_UP_COLOR = '#90D650'
 
 export default {
   name: 'GameChart',
